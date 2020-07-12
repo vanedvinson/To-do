@@ -28,10 +28,12 @@ namespace To_do
 
         private void EditorUnos(object sender, RoutedEventArgs e)
         {
+            
             if (BindingGroup.CommitEdit())
             {
                 DialogResult = true;
                 this.Close();
+                                
             }
         }
 

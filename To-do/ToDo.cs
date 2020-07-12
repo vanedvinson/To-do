@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using FluentValidation;
 
 namespace To_do
 {
@@ -27,13 +28,11 @@ namespace To_do
             }
         }
 
-        
-
-        
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ToDo() { }
         //tyui
     }
+    
 }
