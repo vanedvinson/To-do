@@ -10,31 +10,31 @@
         <TabItem Header="ToDo list">
             <DockPanel>
                 <StackPanel Name="UnosForma" DockPanel.Dock="Top" Margin="10 0">
-                    <Button Content="Add new Task!" Click="dodajToDo"/>
+                    <Button Content="Add new Task!" Click="AddToDo"/>
                 </StackPanel>
                 <DataGrid Name="dg" ColumnWidth="*" IsReadOnly="True" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Date" MaxWidth="80" Binding="{Binding Vreme, StringFormat='dd/MM/yyyy'}"/>
-                        <DataGridTextColumn Header="Time" MaxWidth="50" Binding="{Binding Vreme, StringFormat='HH:mm'}"/>
-                        <DataGridTextColumn Header="Description" Binding="{Binding Opis}"/>
+                        <DataGridTextColumn Header="Date" MaxWidth="80" Binding="{Binding Time, StringFormat='dd/MM/yyyy'}"/>
+                        <DataGridTextColumn Header="Time" MaxWidth="50" Binding="{Binding Time, StringFormat='HH:mm'}"/>
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
                         <DataGridTemplateColumn MaxWidth="60">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Finished" Click="GotovaStavka"/>
+                                    <Button Content="Finished" Click="CheckedToDo"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                         <DataGridTemplateColumn MaxWidth="70">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Delete" Click="ObrisiStavku"/>
+                                    <Button Content="Delete" Click="DeleteToDo"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                         <DataGridTemplateColumn MaxWidth="60">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Edit" Click="IzmenaStavke"/>
+                                    <Button Content="Edit" Click="EditToDo"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -45,13 +45,13 @@
         <TabItem Header="Finished">
             <DataGrid Name="dgCekirano" IsReadOnly="True" ColumnWidth="*" AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Due" Binding="{Binding VremeKraja}" MaxWidth="150"/>
-                    <DataGridTextColumn Header="Description" Binding="{Binding OpisCekirano}"/>
+                    <DataGridTextColumn Header="Due" Binding="{Binding DueDate}" MaxWidth="150"/>
+                    <DataGridTextColumn Header="Description" Binding="{Binding CheckedDescription}"/>
                     <DataGridTextColumn Header="Status" MaxWidth="50" Binding="{Binding Status}"/>
                     <DataGridTemplateColumn MaxWidth="30">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="X" FontWeight="Bold" Click="ObrisiCekirano"/>
+                                <Button Content="X" FontWeight="Bold" Click="DeleteChecked"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

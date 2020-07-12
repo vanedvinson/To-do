@@ -24,7 +24,7 @@ namespace To_do
 
         }
 
-        private void dodajToDo(object sender, RoutedEventArgs e)
+        private void AddToDo(object sender, RoutedEventArgs e)
         {
             Editor ed = new Editor();
             ed.Owner = this;
@@ -37,7 +37,7 @@ namespace To_do
             }
         }
 
-        private void ObrisiStavku(object sender, RoutedEventArgs e)
+        private void DeleteToDo(object sender, RoutedEventArgs e)
         {
             if(dg.SelectedItem != null)
             {
@@ -47,7 +47,7 @@ namespace To_do
             }
         }
 
-        private void IzmenaStavke(object sender, RoutedEventArgs e)
+        private void EditToDo(object sender, RoutedEventArgs e)
         {
             if(dg.SelectedItem != null)
             {
@@ -63,13 +63,13 @@ namespace To_do
 
         }
 
-        private void GotovaStavka(object sender, RoutedEventArgs e)
+        private void CheckedToDo(object sender, RoutedEventArgs e)
         {
             if(dg.SelectedItem != null)
             {
-                if ((dg.SelectedItem as ToDo).Vreme < DateTime.Now)
+                if ((dg.SelectedItem as ToDo).Time < DateTime.Now)
                 {
-                    Cekirano c = new Cekirano(DateTime.Now, (dg.SelectedItem as ToDo).Opis, "FAIL");
+                    Checked c = new Checked(DateTime.Now, (dg.SelectedItem as ToDo).Description, "FAIL");
                     db.cekiranos.Add(c);
                     db.toDos.Remove(dg.SelectedItem as ToDo);
                     db.SaveChanges();
@@ -78,7 +78,7 @@ namespace To_do
                 }
                 else
                 {
-                    Cekirano c = new Cekirano(DateTime.Now, (dg.SelectedItem as ToDo).Opis, "U roku");
+                    Checked c = new Checked(DateTime.Now, (dg.SelectedItem as ToDo).Description, "In Time");
                     db.cekiranos.Add(c);
                     db.toDos.Remove(dg.SelectedItem as ToDo);
                     db.SaveChanges();
@@ -90,11 +90,11 @@ namespace To_do
             }
         }
 
-        private void ObrisiCekirano(object sender, RoutedEventArgs e)
+        private void DeleteChecked(object sender, RoutedEventArgs e)
         {
             if(dgCekirano.SelectedItem != null)
             {
-                db.cekiranos.Remove(dgCekirano.SelectedItem as Cekirano);
+                db.cekiranos.Remove(dgCekirano.SelectedItem as Checked);
                 db.SaveChanges();
                 dgCekirano.ItemsSource = db.cekiranos.ToList();
             }

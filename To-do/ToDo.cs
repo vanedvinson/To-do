@@ -8,23 +8,23 @@ namespace To_do
     {
         public int ID { get; set; }
 
-        private string _opis;
-        public string Opis
+        private string _description;
+        public string Description
         {
-            get => _opis;
+            get => _description;
             set
             {
-                _opis = value;
+                _description = value;
             }
         }
 
-        private DateTime _vreme = DateTime.Now;
-        public DateTime Vreme
+        private DateTime _time = DateTime.Now;
+        public DateTime Time
         {
-            get => _vreme;
+            get => _time;
             set
             {
-                _vreme = value;
+                _time = value;
             }
         }
 

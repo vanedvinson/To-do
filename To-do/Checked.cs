@@ -6,26 +6,26 @@ using System.Threading.Tasks;
 
 namespace To_do
 {
-    public class Cekirano
+    public class Checked
     {
         public int ID { get; set; }
 
-        private DateTime _vremeKraja;
-        public DateTime VremeKraja
+        private DateTime _dueDate;
+        public DateTime DueDate
         {
-            get => _vremeKraja;
+            get => _dueDate;
             set
             {
-                _vremeKraja = value;
+                _dueDate = value;
             }
         }
-        private string _opisCekirano;
-        public string OpisCekirano
+        private string _checkedDescription;
+        public string CheckedDescription
         {
-            get => _opisCekirano;
+            get => _checkedDescription;
             set
             {
-                _opisCekirano = value;
+                _checkedDescription = value;
             }
         }
 
@@ -39,11 +39,11 @@ namespace To_do
             }
         }
 
-        public Cekirano() { }
-        public Cekirano(DateTime v, string o, string s)
+        public Checked() { }
+        public Checked(DateTime v, string o, string s)
         {
-            _vremeKraja = v;
-            _opisCekirano = o;
+            _dueDate = v;
+            _checkedDescription = o;
             _status = s;
         }
     }
