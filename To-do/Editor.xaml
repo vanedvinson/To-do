@@ -9,11 +9,11 @@
     <UniformGrid Columns="2">
         <!--<Label Content="Rok:"/>
         <DatePicker Text="{Binding Rok,UpdateSourceTrigger=Explicit}"/>-->
-        <Label Content="Vreme: "/>
+        <Label Content="date and time: "/>
         <xctk:DateTimePicker Text="{Binding Vreme,UpdateSourceTrigger=Explicit}" AllowSpin="False"/>
-        <Label Content="Opis: "/>
+        <Label Content="Description: "/>
         <TextBox MinWidth="400" Text="{Binding Opis,UpdateSourceTrigger=Explicit}"/>
-        <Button Content="Otkaz" FontSize="20" Margin="0 10" Click="EditorOtkaz"/>
-        <Button Content="Dodaj!" FontSize="20" Margin="0 10" Click="EditorUnos"/>
+        <Button Content="Cancel" FontSize="20" Margin="0 10" Click="EditorOtkaz"/>
+        <Button Content="Add!" FontSize="20" Margin="0 10" Click="EditorUnos"/>
     </UniformGrid>
 </Window>

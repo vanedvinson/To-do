@@ -9,16 +9,11 @@ namespace To_do
     /// </summary>
     /// 
 
-    /* TASK: napraviti kaze da li je u roku ili ne
-     * TASK: Dodati dugme za brisanje na listi za cekirane
-     * TASK: Napraviti Statistiku koliko je uspesno izvrsenih
-     *  SUBTASK: npr za ovaj mesec
-     */
+    
 
     public partial class MainWindow : Window
     {
         Baza db = new Baza();
-        public string heh;
         public MainWindow()
         {
             InitializeComponent();
