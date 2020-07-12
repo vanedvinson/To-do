@@ -1,0 +1,62 @@
+﻿<Window x:Class="To_do.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:To_do"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <TabControl>
+        <TabItem Header="ToDo lista">
+            <DockPanel>
+                <StackPanel Name="UnosForma" DockPanel.Dock="Top" Margin="10 0">
+                    <Button Content="Dodaj!" Click="dodajToDo"/>
+                </StackPanel>
+                <DataGrid Name="dg" ColumnWidth="*" IsReadOnly="True" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Datum" MaxWidth="80" Binding="{Binding Vreme, StringFormat='dd/MM/yyyy'}"/>
+                        <DataGridTextColumn Header="Vreme" MaxWidth="50" Binding="{Binding Vreme, StringFormat='HH:mm'}"/>
+                        <DataGridTextColumn Header="Opis posla" Binding="{Binding Opis}"/>
+                        <DataGridTemplateColumn MaxWidth="60">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Gotovo" Click="GotovaStavka"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn MaxWidth="70">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="To Mordor!" Click="ObrisiStavku"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn MaxWidth="60">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Izmena" Click="IzmenaStavke"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </TabItem>
+        <TabItem Header="Cekirano">
+            <DataGrid Name="dgCekirano" IsReadOnly="True" ColumnWidth="*" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Rok zavrsetka" Binding="{Binding VremeKraja}" MaxWidth="150"/>
+                    <DataGridTextColumn Header="Opis" Binding="{Binding OpisCekirano}"/>
+                    <DataGridTextColumn Header="Status" MaxWidth="50" Binding="{Binding Status}"/>
+                    <DataGridTemplateColumn MaxWidth="30">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="X" FontWeight="Bold" Click="ObrisiCekirano"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </TabItem>
+    </TabControl>
+</Window>
